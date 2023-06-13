@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;700&display=swap");
+html, body {
+  padding: 0;
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  color: #ffefef;
+  background: #f8e1e7;
+  overflow-x: hidden; }
+
+body {
+  font-family: "Cormorant Garamond", "Courier New", serif;
+  background-color: #fff5f5;
+  color: #373f51;
+  margin: 0;
+  padding: 0; }
+
+.navbar {
+  background-color: #f8e1e7 !important; }
+  .navbar a {
+    color: #3b4252 !important; }
+    .navbar a:hover {
+      color: #373f51 !important; }
+
+header.hero {
+  padding: 5em 0;
+  background: url("pexels-samuel-walker-92340.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  text-align: center;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease; }
+  header.hero .container {
+    position: relative;
+    z-index: 2; }
+    header.hero .container .img-fluid {
+      border: 5px solid #3b4252;
+      border-radius: 50%; }
+    header.hero .container h1 {
+      font-size: 2.5em;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      margin: 1em 0; }
+    header.hero .container p {
+      font-size: 1.2em;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); }
+
+section {
+  padding: 2em 0; }
+  section h2 {
+    color: #3b4252;
+    border-bottom: 2px solid #f8e1e7;
+    display: inline-block; }
+  section h5 {
+    color: #3b4252; }
+  section a {
+    color: #3b4252; }
+    section a:hover {
+      color: #373f51; }
+
+.hidden {
+  opacity: 0;
+  margin-left: -100px; }
+
+.project, .job, .col-md-3 {
+  border: 1px solid #f8e1e7;
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 5px;
+  -webkit-transition: box-shadow 0.3s ease-in-out;
+  -moz-transition: box-shadow 0.3s ease-in-out;
+  -ms-transition: box-shadow 0.3s ease-in-out;
+  -o-transition: box-shadow 0.3s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out; }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+.fade-in {
+  animation: fadeIn 1s ease-in-out; }
+
+@keyframes slideIn {
+  from {
+    margin-left: -100px;
+    opacity: 0; }
+  to {
+    margin-left: 0;
+    opacity: 1; } }
+
+.slide-in {
+  animation: slideIn 1s ease-in-out; }

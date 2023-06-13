@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;700&display=swap');
+@mixin transition($args) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+$primary-color: #f8e1e7;
+$secondary-color: #3b4252;
+$light-color: #ffefef;
+$dark-color: #373f51;
+$font-stack: 'Cormorant Garamond', serif;
+$bg-color: #fff5f5;
+$text-color: #373f51;
+
+html, body {
+  padding: 0;
+  margin: 0;
+  font-family: $font-stack;
+  color: $light-color;
+  background: $primary-color;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Cormorant Garamond", "Courier New", serif;
+  background-color: $bg-color;
+  color: $text-color;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  background-color: $primary-color !important;
+
+  a {
+    color: $secondary-color !important;
+
+    &:hover {
+      color: $text-color !important;
+    }
+  }
+}
+
+header.hero {
+  padding: 5em 0;
+  background: url('pexels-samuel-walker-92340.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  text-align: center;
+
+  @include transition(all 0.5s ease);
+
+  .container {
+    position: relative;
+    z-index: 2;
+
+    .img-fluid {
+      border: 5px solid $secondary-color;
+      border-radius: 50%;
+    }
+    h1 {
+      font-size: 2.5em;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      margin: 1em 0;
+    }
+    p {
+      font-size: 1.2em;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+  }
+}
+
+section {
+  padding: 2em 0;
+  h2 {
+    color: $secondary-color;
+    border-bottom: 2px solid $primary-color;
+    display: inline-block;
+  }
+  h5 {
+    color: $secondary-color;
+  }
+  a {
+    color: $secondary-color;
+    &:hover {
+      color: $text-color;
+    }
+  }
+}
+
+.hidden {
+  opacity: 0;
+  margin-left: -100px;
+}
+
+.project, .job, .col-md-3 {
+  border: 1px solid $primary-color;
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 5px;
+  @include transition(box-shadow 0.3s ease-in-out);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes slideIn {
+  from {
+    margin-left: -100px;
+    opacity: 0;
+  }
+  to {
+    margin-left: 0;
+    opacity: 1;
+  }
+}
+
+.slide-in {
+  animation: slideIn 1s ease-in-out;
+}
