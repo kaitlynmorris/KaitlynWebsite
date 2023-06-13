@@ -1,46 +1,41 @@
 $(document).ready(function() {
-    $("a").on('click', function(event) {
+    // Add smooth scrolling on all links inside the navbar
+    $(".navbar a").on('click', function(event) {
         if (this.hash !== "") {
             event.preventDefault();
-            let hash = this.hash;
+            var hash = this.hash;
+
             $('html, body').animate({
                 scrollTop: $(hash).offset().top
-            }, 1000, function(){  // Increase animation speed to 1000ms
+            }, 800, function() {
                 window.location.hash = hash;
             });
-        } // End if
+        }
     });
 
-    $("#about").addClass("hidden").hide().fadeIn(500);
-    $("#projects").addClass("hidden").hide().fadeIn(1000);
-    $("#skills").addClass("hidden").hide().fadeIn(1500);
-    $("#experience").addClass("hidden").hide().fadeIn(2000);
-    $("#certifications").addClass("hidden").hide().fadeIn(2500);
-    $("#contact").addClass("hidden").hide().fadeIn(3000);
-
-    // Slide in sections when they enter the viewport.
-    $(window).scroll(function() {
-        $(".hidden").each(function() {
-            let top_of_object = $(this).offset().top;
-            let bottom_of_window = $(window).scrollTop() + $(window).height();
-            if (bottom_of_window > top_of_object) {
-                $(this).animate({"opacity":"1","margin-left":"0px"},1000);
+    // Use IntersectionObserver API to detect when sections come into view, add fade-in effect
+    let observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.intersectionRatio > 0) {
+                entry.target.style.animation = `fade-in 1s ${entry.target.dataset.delay} forwards ease-out`;
             }
         });
     });
 
-    $("section").hover(
-        function() {
-            $(this).css({
-                "transition": "transform 0.3s",
-                "transform": "scale(1.02)"
-            });
-        },
-        function() {
-            $(this).css({
-                "transition": "transform 0.3s",
-                "transform": "scale(1)"
-            });
+    // Apply observer to all sections
+    document.querySelectorAll('section').forEach((section) => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(50px)';
+        observer.observe(section);
+    });
+
+    // Fade-in animation css
+    const style = document.createElement('style');
+    style.innerHTML = `
+        @keyframes fade-in {
+            0% { opacity: 0; transform: translateY(50px); }
+            100% { opacity: 1; transform: translateY(0px); }
         }
-    );
+    `;
+    document.head.appendChild(style);
 });

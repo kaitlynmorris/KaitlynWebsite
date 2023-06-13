@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;700&display=swap');
+
 @mixin transition($args) {
   -webkit-transition: $args;
   -moz-transition: $args;
@@ -13,7 +14,8 @@ $light-color: #ffefef;
 $dark-color: #373f51;
 $font-stack: 'Cormorant Garamond', serif;
 $bg-color: #fff5f5;
-$text-color: #373f51;
+$text-color: $dark-color; // Change to use $dark-color for text color
+$hover-color: darken($primary-color, 60%);
 
 html, body {
   padding: 0;
@@ -39,14 +41,77 @@ body {
     color: $secondary-color !important;
 
     &:hover {
-      color: $text-color !important;
+      color: $hover-color !important;
+    }
+  }
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+img.img-fluid {
+  width: 20%;
+  height: auto;
+  border-radius: 50%;
+  @include transition(all 0.5s ease);
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+
+section {
+  .container {
+    h2 {
+      font-size: 2em;
+      text-align: center;
+      margin-bottom: 1em;
+    }
+    .degree,
+    .award,
+    .job {
+      margin-top: 2em;
+      h3 {
+        font-size: 1.5em;
+        color: $dark-color;
+      }
+      p,
+      ul {
+        font-size: 1em;
+        color: $text-color;
+      }
+      li {
+        margin-bottom: 0.5em;
+      }
+    }
+  }
+}
+
+#contact {
+  ul {
+    list-style: none;
+    padding: 0;
+    li {
+      margin-bottom: 1em;
+      a {
+        color: $secondary-color;
+        text-decoration: none;
+        &:hover {
+          color: $hover-color;
+        }
+      }
     }
   }
 }
 
 header.hero {
   padding: 5em 0;
-  background: url('pexels-samuel-walker-92340.jpg') no-repeat center center fixed;
+  background: url('aj-McsNra2VRQQ-unsplash.jpg') no-repeat center center fixed;
   background-size: cover;
   color: #fff;
   text-align: center;
@@ -65,28 +130,12 @@ header.hero {
       font-size: 2.5em;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
       margin: 1em 0;
+      color: $dark-color;
     }
-    p {
+    h3 {
       font-size: 1.2em;
       text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    }
-  }
-}
-
-section {
-  padding: 2em 0;
-  h2 {
-    color: $secondary-color;
-    border-bottom: 2px solid $primary-color;
-    display: inline-block;
-  }
-  h5 {
-    color: $secondary-color;
-  }
-  a {
-    color: $secondary-color;
-    &:hover {
-      color: $text-color;
+      color: $dark-color;
     }
   }
 }
@@ -96,7 +145,9 @@ section {
   margin-left: -100px;
 }
 
-.project, .job, .col-md-3 {
+.project,
+.job,
+.col-md-3 {
   border: 1px solid $primary-color;
   padding: 1em;
   margin: 1em 0;
@@ -115,19 +166,4 @@ section {
 
 .fade-in {
   animation: fadeIn 1s ease-in-out;
-}
-
-@keyframes slideIn {
-  from {
-    margin-left: -100px;
-    opacity: 0;
-  }
-  to {
-    margin-left: 0;
-    opacity: 1;
-  }
-}
-
-.slide-in {
-  animation: slideIn 1s ease-in-out;
 }

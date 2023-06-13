@@ -19,11 +19,68 @@ body {
   .navbar a {
     color: #3b4252 !important; }
     .navbar a:hover {
-      color: #373f51 !important; }
+      color: #87203b !important; }
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; }
+
+img.img-fluid {
+  width: 20%;
+  height: auto;
+  border-radius: 50%;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease; }
+  img.img-fluid:hover {
+    transform: scale(1.1); }
+
+section .container h2 {
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 1em; }
+
+section .container .degree,
+section .container .award,
+section .container .job {
+  margin-top: 2em; }
+  section .container .degree h3,
+  section .container .award h3,
+  section .container .job h3 {
+    font-size: 1.5em;
+    color: #373f51; }
+  section .container .degree p,
+  section .container .degree ul,
+  section .container .award p,
+  section .container .award ul,
+  section .container .job p,
+  section .container .job ul {
+    font-size: 1em;
+    color: #373f51; }
+  section .container .degree li,
+  section .container .award li,
+  section .container .job li {
+    margin-bottom: 0.5em; }
+
+#contact ul {
+  list-style: none;
+  padding: 0; }
+  #contact ul li {
+    margin-bottom: 1em; }
+    #contact ul li a {
+      color: #3b4252;
+      text-decoration: none; }
+      #contact ul li a:hover {
+        color: #87203b; }
 
 header.hero {
   padding: 5em 0;
-  background: url("pexels-samuel-walker-92340.jpg") no-repeat center center fixed;
+  background: url("aj-McsNra2VRQQ-unsplash.jpg") no-repeat center center fixed;
   background-size: cover;
   color: #fff;
   text-align: center;
@@ -41,29 +98,20 @@ header.hero {
     header.hero .container h1 {
       font-size: 2.5em;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-      margin: 1em 0; }
-    header.hero .container p {
+      margin: 1em 0;
+      color: #373f51; }
+    header.hero .container h3 {
       font-size: 1.2em;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); }
-
-section {
-  padding: 2em 0; }
-  section h2 {
-    color: #3b4252;
-    border-bottom: 2px solid #f8e1e7;
-    display: inline-block; }
-  section h5 {
-    color: #3b4252; }
-  section a {
-    color: #3b4252; }
-    section a:hover {
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
       color: #373f51; }
 
 .hidden {
   opacity: 0;
   margin-left: -100px; }
 
-.project, .job, .col-md-3 {
+.project,
+.job,
+.col-md-3 {
   border: 1px solid #f8e1e7;
   padding: 1em;
   margin: 1em 0;
@@ -82,14 +130,3 @@ section {
 
 .fade-in {
   animation: fadeIn 1s ease-in-out; }
-
-@keyframes slideIn {
-  from {
-    margin-left: -100px;
-    opacity: 0; }
-  to {
-    margin-left: 0;
-    opacity: 1; } }
-
-.slide-in {
-  animation: slideIn 1s ease-in-out; }
